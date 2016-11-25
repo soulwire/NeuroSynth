@@ -12,7 +12,7 @@
 }
 
 .sliders .slider {
-  margin: 16px 0;
+  margin: 12px 0;
 }
 
 .toggle {
@@ -73,6 +73,6 @@
   }
 
   .sliders .slider {
-    margin: 0 8px;
+    margin: 0 6px;
   }
 }
