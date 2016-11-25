@@ -24,7 +24,7 @@ class Voice {
     return this._note;
   }
   set note(value) {
-    this.__note = value;
+    this._note = value;
     const [, note, sharp, flat, octave] = value.match(RE_NOTE);
     const semitone = sharp ? 1 : flat ? -1 : 0;
     const offset = A4_OFFSETS[note];
