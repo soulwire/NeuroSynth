@@ -31,6 +31,7 @@ class Synth {
     this.compressor.attack.value = 0.02;
     this.compressor.release.value = 0.3;
     // Create graph
+    this.volume = 2.0;
     this.chain(
       this.master,
       this.delay.output,
@@ -44,7 +45,7 @@ class Synth {
       return node;
     });
   }
-  play(voice) {
+  play(voice, x = 0, y = 0) {
     const { attack, decay, sustain, release } = voice;
     // Compute time
     const start = this.context.currentTime;
@@ -77,7 +78,16 @@ class Synth {
     gain.linearRampToValueAtTime(0, end);
     // Connect nodes
     osc.connect(adsr);
-    adsr.connect(this.master);
+    // Spatialisation
+    if (x !== 0 || y !== 0) {
+      const pan = this.context.createPanner();
+      pan.panningModel = 'equalpower';
+      pan.setPosition(x, y, 1);
+      adsr.connect(pan);
+      pan.connect(this.master);
+    } else {
+      adsr.connect(this.master);      
+    }
     // Fire oscillator
     osc.start();
     osc.stop(end);

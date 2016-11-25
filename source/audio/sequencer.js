@@ -29,14 +29,14 @@ class Sequencer {
     if (this.countdown <= 0) {
       this.countdown = this.interval;
       while (this.queue.length) {
-        const note = this.queue.pop();
+        const { note, x, y } = this.queue.pop();
         const voice = new Voice(note);
-        this.synth.play(voice);
+        this.synth.play(voice, x, y);
       }
     }
   }
-  schedule(note) {
-    this.queue.push(note);
+  schedule(note, x, y) {
+    this.queue.push({ note, x, y });
   }
   get interval() {
     return MINUTE / Config.tempo.value / this.subdivision;

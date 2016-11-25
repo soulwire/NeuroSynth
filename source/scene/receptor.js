@@ -42,7 +42,7 @@ class Receptor extends Container {
   activate(octave) {
     const note = this.pitch + octave;
     // Visualise activation.
-    this.activated.dispatch(note);
+    this.activated.dispatch(note, this.x, this.y);
     if (this.tween) { this.tween.kill(); }
     const stateA = { radius: this.radius * 1.1 };
     const stateB = { radius: this.radius };
