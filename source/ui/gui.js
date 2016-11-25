@@ -30,9 +30,11 @@ class GUI {
     this.$sliders = document.createElement('div');
     this.$sliders.className = 'sliders';
     this.tempoSlider = new Slider('tempo', Config.tempo);
+    this.wanderSlider = new Slider('wander', Config.wander);
     this.proximitySlider = new Slider('proximity', Config.transmissionRange);
     this.speedSlider = new Slider('velocity', Config.transmissionSpeed);
     this.$sliders.appendChild(this.tempoSlider.view);
+    this.$sliders.appendChild(this.wanderSlider.view);
     this.$sliders.appendChild(this.proximitySlider.view);
     this.$sliders.appendChild(this.speedSlider.view);
     document.body.appendChild(this.$sliders);

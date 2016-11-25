@@ -50,6 +50,12 @@ const Config = {
     min: 600,
     max: 1200
   },
+  wander: {
+    min: 0,
+    max: 1,
+    value: 0.4,
+    step: 0.01
+  },
   tempo: {
     min: 60,
     max: 160,
