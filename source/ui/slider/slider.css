@@ -50,22 +50,7 @@
 }
 
 @media screen and (max-width: 600px), (max-height: 500px) {
-  
-  .slider .graphics {
-    height: 64px;
-    width: 64px;
-  }
-  
   .slider .label {
-    line-height: 1.2;
     letter-spacing: 0;
-  }
-
-  .slider .label .title {
-    font-size: 8px;
-  }
-
-  .slider .label .value {
-    font-size: 11px;
   }
 }

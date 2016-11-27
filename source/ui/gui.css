@@ -51,24 +51,33 @@
     -moz-transition: all 0.15s ease-out;
     -ms-transition: all 0.15s ease-out;
     transition: all 0.15s ease-out;
-    -webkit-transform: translate(-50%, 100%);
-    -moz-transform: translate(-50%, 100%);
-    -ms-transform: translate(-50%, 100%);
-    transform: translate(-50%, 100%);
+    -webkit-transform: translate(0, 100%);
+    -moz-transform: translate(0, 100%);
+    -ms-transform: translate(0, 100%);
+    transform: translate(0, 100%);
     flex-direction: row;
-    padding-bottom: 12px;
-    opacity: 0;
+    padding: 0 8px 8px 8px;
     bottom: 0;
     right: auto;
-    left: 50%;
+    left: auto;
     top: auto;
   }
 
+  .sliders .slider {
+    flex: 1 1 auto;
+    width: 24%;
+  }
+
+  .sliders .slider .graphics {
+    height: auto;
+    width: 100%;
+  }
+
   .sliders.open {
-    -webkit-transform: translate(-50%, 0%);
-    -moz-transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
     opacity: 1;
   }
 
