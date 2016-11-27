@@ -121,7 +121,8 @@ class Slider {
     const dy = coord.y - this.center.y;
     const theta = Math.atan2(dy, dx) - NORTH;
     const gamma = (theta + TAU) % TAU;
-    this.value = map(gamma, 0, TAU, this.prop.min, this.prop.max);
+    const nudge = 0.1;
+    this.value = map(gamma, nudge, TAU - nudge * 2, this.prop.min, this.prop.max);
   }
   onPointerUp() {
     document.removeEventListener('mousemove', this.onPointerMove);
@@ -136,7 +137,7 @@ class Slider {
   set value(value) {
     value = clamp(value, this.prop.min, this.prop.max);
     value = step(value, this.prop.step);
-    const span = map(value, this.prop.min, this.prop.max, 0, TAU);
+    const span = map(value, this.prop.min, this.prop.max, 0, TAU - 1e-6);
     const path = arc(RADIUS, RADIUS, INNER, NORTH, NORTH + span);
     this.$bar.setAttribute('d', path);
     this.$value.innerHTML = formatValue(value, this.prop.step);

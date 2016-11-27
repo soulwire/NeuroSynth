@@ -21,7 +21,7 @@
 }
 
 .slider .graphics .bar {
-  stroke-linecap: square;
+  stroke-linecap: butt;
   stroke: #fff;
   fill: none;
 }
